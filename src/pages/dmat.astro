@@ -1,0 +1,242 @@
+---
+import Layout from '../layouts/Layout.astro';
+import '../styles/dmat.css';
+---
+<Layout title="Option Media — DMAT">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container">
+        <p class="subtitle">Digital Media Asset Transfer</p>
+        <h1>DMAT</h1>
+      </div>
+    </section>
+
+    <!-- FORM -->
+    <section class="form-section">
+      <div class="container">
+        <div class="form-wrapper">
+
+          <!-- Info Panel -->
+          <div class="info-panel">
+            <h2>Option Media &mdash; DMAT Request</h2>
+
+            <h3>Option Media &ndash; DMAT Delivery</h3>
+            <p>
+              The metadata contained in the DMAT file must fully correspond with the media campaign
+              data provided to the broadcaster. Option Media cannot be held liable for errors in the
+              metadata.
+            </p>
+            <p>
+              Technical specifications: <a href="http://www.optionmedia.tv/Pdf/Dmat.pdf" target="_blank">http://www.optionmedia.tv/Pdf/Dmat.pdf</a>
+            </p>
+
+            <h3>Submitting a DMAT in 3 steps</h3>
+            <ol class="steps-list">
+              <li><strong>Complete the form</strong></li>
+              <li><strong>Select the captcha security check</strong></li>
+              <li><strong>Send the spot via WeTransfer to: deliveries@optionmedia.tv</strong></li>
+            </ol>
+
+            <p class="info-contact">
+              For more information, you can email <strong>deliveries@optionmedia.tv</strong> or call <strong>+32 15 28 73 00</strong>.
+            </p>
+          </div>
+
+          <!-- Required notice -->
+          <div class="required-notice">* Indicates required question</div>
+
+          <!-- Form -->
+          <form id="dmatForm" onsubmit="return false;">
+
+            <!-- Email -->
+            <div class="form-card">
+              <label>Email <span class="req">*</span></label>
+              <input type="email" placeholder="Your email" required>
+            </div>
+
+            <!-- Invoicing to -->
+            <div class="form-card">
+              <label>Invoicing to: <span class="req">*</span></label>
+              <input type="text" placeholder="Your answer" required>
+            </div>
+
+            <!-- PO Number -->
+            <div class="form-card">
+              <label>PO Number or Campaign Name:</label>
+              <div class="field-desc">(reference for invoicing)</div>
+              <input type="text" placeholder="Your answer">
+            </div>
+
+            <!-- File name -->
+            <div class="form-card">
+              <label>File name: <span class="req">*</span></label>
+              <div class="field-desc">(Exact name of the delivered file - Example: Optionmedia_SR-Zomer-25_NL_20_Zender-01_FR_R128.mov)</div>
+              <input type="text" placeholder="Your answer" required>
+            </div>
+
+            <!-- Program Title -->
+            <div class="form-card">
+              <label>Program Title:</label>
+              <div class="field-desc">(preferred name for the spot/advertisement &ndash; to be used if a different name is desired from the file name &nbsp;- Example: Optionmedia Showreel Zomer NL)</div>
+              <input type="text" placeholder="Your answer">
+            </div>
+
+            <!-- Length -->
+            <div class="form-card">
+              <label>Length (seconds) <span class="req">*</span></label>
+              <input type="number" placeholder="Your answer" required>
+            </div>
+
+            <!-- Language -->
+            <div class="form-card">
+              <label>Language: <span class="req">*</span></label>
+              <div class="radio-group">
+                <label class="radio-option">
+                  <input type="radio" name="language" value="NL" required> NL
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="language" value="FR"> FR
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="language" value="EN"> EN
+                </label>
+              </div>
+            </div>
+
+            <!-- Content Provider -->
+            <div class="form-card">
+              <label>Content Provider:</label>
+              <div class="field-desc">(producer of the spot)</div>
+              <input type="text" placeholder="Your answer">
+            </div>
+
+            <!-- Advertiser name -->
+            <div class="form-card">
+              <label>Advertiser name:</label>
+              <div class="field-desc">(brand or product being advertised)</div>
+              <input type="text" placeholder="Your answer">
+            </div>
+
+            <!-- Source file -->
+            <div class="form-card">
+              <label>Source file: <span class="req">*</span></label>
+              <div class="field-desc">MP4/H264 already has excessive compression and cannot be used for delivery via HDmat.</div>
+              <div class="radio-group">
+                <label class="radio-option">
+                  <input type="radio" name="source_file" value="ProRes" required> QT ProRes HD 25 frames/sec
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="source_file" value="MXF"> MXF HD 25 frames/sec
+                </label>
+              </div>
+            </div>
+
+            <!-- MBCID code -->
+            <div class="form-card">
+              <label>MBCID code:</label>
+              <div class="field-desc">
+                <em>MBCID is a unique code</em> for each campaign that is generated by the Flemish Regulator for the Media
+                at the start of a media project. The Flemish Regulator for the Media communicates this number to all
+                advertising departments that are supposed to air the campaign.<br>
+                Examples of MBCIDs:<br>
+                "SPA113423", "MECTV12000162", "MDSTV12002798"<br><br>
+                When there is no MBCID code available, Option Media cannot be held accountable for erroneous deliveries.
+              </div>
+              <input type="text" placeholder="Your answer">
+            </div>
+
+            <!-- Delivery To -->
+            <div class="form-card">
+              <label>DELIVERY TO: <span class="req">*</span></label>
+              <div class="delivery-grid">
+                <label class="delivery-option" onclick="this.classList.toggle('selected')">
+                  <input type="checkbox" name="delivery" value="DPG_NORTH">
+                  <div class="delivery-logo-area">VTM, VTM 2, VTM 3, VTM 4, VTM GO, VTM GOLD, Discovery, Eurosport, TLC</div>
+                  <div class="delivery-name">DPG MEDIA NORTH</div>
+                </label>
+                <label class="delivery-option" onclick="this.classList.toggle('selected')">
+                  <input type="checkbox" name="delivery" value="ADS_DATA">
+                  <div class="delivery-logo-area">PLAY 4, PLAY 5, PLAY 6, PLAY 7, GoPlay, GoSports, Comedy Central, MTV, Nickelodeon, BOBBY TV</div>
+                  <div class="delivery-name">ADS &amp; DATA</div>
+                </label>
+                <label class="delivery-option" onclick="this.classList.toggle('selected')">
+                  <input type="checkbox" name="delivery" value="RMB">
+                  <div class="delivery-logo-area">Tipik, VivaCit&eacute;, AB3, Explore, Classic 21, Be TV, LN24, BX1</div>
+                  <div class="delivery-name">RMB</div>
+                </label>
+                <label class="delivery-option" onclick="this.classList.toggle('selected')">
+                  <input type="checkbox" name="delivery" value="RMDP">
+                  <div class="delivery-logo-area">CTV, Canal C, DH, Sudpresse, T&eacute;l&eacute; MB, Notele, tvlux, VEDIA</div>
+                  <div class="delivery-name">RMDP</div>
+                </label>
+                <label class="delivery-option" onclick="this.classList.toggle('selected')">
+                  <input type="checkbox" name="delivery" value="BRIGHTFISH">
+                  <div class="delivery-logo-area">Kinepolis, Euroscoop, Pathé, UGC, Imagix</div>
+                  <div class="delivery-name">BRIGHTFISH</div>
+                </label>
+                <label class="delivery-option" onclick="this.classList.toggle('selected')">
+                  <input type="checkbox" name="delivery" value="VAR">
+                  <div class="delivery-logo-area">VRT, Canvas, Sporza</div>
+                  <div class="delivery-name">VAR</div>
+                </label>
+                <label class="delivery-option" onclick="this.classList.toggle('selected')">
+                  <input type="checkbox" name="delivery" value="DPG_SOUTH">
+                  <div class="delivery-logo-area">RTL TVI, RTL Club, RTL Plug, TF1, TMC, RTL Play, M6, 6play</div>
+                  <div class="delivery-name">DPG MEDIA SOUTH</div>
+                </label>
+                <label class="delivery-option" onclick="this.classList.toggle('selected')">
+                  <input type="checkbox" name="delivery" value="TRANSFER">
+                  <div class="delivery-logo-area">Disney, Disney+, Disney Jr, Disney XD, Cartoon Network, MTV, DAZN, Nickelodeon, XITE &amp; more</div>
+                  <div class="delivery-name">TRANSFER</div>
+                </label>
+              </div>
+            </div>
+
+            <!-- Copy notice -->
+            <div class="copy-notice">A copy of your responses will be emailed to the address you provided.</div>
+
+            <!-- Actions -->
+            <div class="form-actions">
+              <button type="submit" class="cta primary">Submit</button>
+              <button type="reset" class="clear-link" onclick="document.querySelectorAll('.delivery-option.selected').forEach(function(e){e.classList.remove('selected')})">Clear form</button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </section>
+
+  <script slot="scripts" is:inline>
+    /* ── Mobile menu ── */
+    (function () {
+      var btn = document.getElementById('hamburgerBtn');
+      var menu = document.getElementById('mobileMenu');
+      var overlay = document.getElementById('menuOverlay');
+      var close = document.getElementById('closeMenu');
+
+      function open() {
+        btn.classList.add('active');
+        menu.classList.add('active');
+        overlay.classList.add('active');
+        document.body.classList.add('menu-open');
+      }
+
+      function shut() {
+        btn.classList.remove('active');
+        menu.classList.remove('active');
+        overlay.classList.remove('active');
+        document.body.classList.remove('menu-open');
+      }
+
+      btn.addEventListener('click', function () {
+        menu.classList.contains('active') ? shut() : open();
+      });
+      close.addEventListener('click', shut);
+      overlay.addEventListener('click', shut);
+
+      menu.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', shut);
+      });
+    })();
+  </script>
+</Layout>

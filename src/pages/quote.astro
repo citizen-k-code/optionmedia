@@ -1,0 +1,484 @@
+---
+import Layout from '../layouts/Layout.astro';
+import '../styles/quote.css';
+---
+<Layout title="Option Media — Request a Quote">
+    <div class="container">
+
+      <!-- ── Hero ── -->
+      <section class="quote-hero">
+        <div class="label">Request a Quote</div>
+        <h1>Let's build your <em>next project</em></h1>
+        <p class="sub">Tell us about your production needs and we'll craft a tailored proposal within 24 hours.</p>
+
+        <!-- Progress Rail -->
+        <div class="progress-rail" id="progressRail">
+          <div class="progress-step active" data-step="1">
+            <div class="step-num"><span>1</span></div>
+            <div class="step-label">Services</div>
+          </div>
+          <div class="progress-line" id="line1"></div>
+          <div class="progress-step" data-step="2">
+            <div class="step-num"><span>2</span></div>
+            <div class="step-label">Project</div>
+          </div>
+          <div class="progress-line" id="line2"></div>
+          <div class="progress-step" data-step="3">
+            <div class="step-num"><span>3</span></div>
+            <div class="step-label">Your Details</div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ── Form Stage ── -->
+      <div class="form-stage" id="formStage">
+
+        <!-- Step 1: Services -->
+        <div class="step-panel active" id="step1">
+          <div class="step-title">What do you need?</div>
+          <div class="step-desc">Select all services that apply to your project. We'll tailor the quote accordingly.</div>
+
+          <div class="service-grid" id="serviceGrid">
+            <div class="service-card" data-service="post-production">
+              <div class="check-mark"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              </div>
+              <h3>Post-Production</h3>
+              <p>Editing, color grading, VFX, conforming and finishing for any format.</p>
+            </div>
+
+            <div class="service-card" data-service="localization">
+              <div class="check-mark"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              </div>
+              <h3>Localization</h3>
+              <p>Dubbing, subtitling, captioning and audio description in 60+ languages.</p>
+            </div>
+
+            <div class="service-card" data-service="media-delivery">
+              <div class="check-mark"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+              </div>
+              <h3>Media Delivery</h3>
+              <p>Encoding, packaging and delivery to Netflix, Disney+, Amazon and more.</p>
+            </div>
+
+            <div class="service-card" data-service="quality-control">
+              <div class="check-mark"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+              </div>
+              <h3>Quality Control</h3>
+              <p>Automated and manual QC to meet the strictest platform specifications.</p>
+            </div>
+
+            <div class="service-card" data-service="audio-mixing">
+              <div class="check-mark"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+              </div>
+              <h3>Audio &amp; Mixing</h3>
+              <p>5.1 / 7.1 / Dolby Atmos mixing, sound design and audio restoration.</p>
+            </div>
+
+            <div class="service-card" data-service="other">
+              <div class="check-mark"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
+              </div>
+              <h3>Other / Unsure</h3>
+              <p>Not sure what you need? We'll figure it out together during a free consultation.</p>
+            </div>
+          </div>
+
+          <div class="step-nav">
+            <div></div>
+            <button class="btn btn-primary" id="toStep2">Continue <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+          </div>
+        </div>
+
+        <!-- Step 2: Project Details -->
+        <div class="step-panel" id="step2">
+          <div class="step-title">Tell us about your project</div>
+          <div class="step-desc">The more detail you provide, the more accurate our quote will be.</div>
+
+          <div class="section-label">Project Information</div>
+
+          <div class="form-row">
+            <div class="field">
+              <label>Project Title <span class="req">*</span></label>
+              <input type="text" id="projectTitle" placeholder="e.g. Season 2 — 'The Signal'" />
+            </div>
+            <div class="field">
+              <label>Content Type</label>
+              <select id="contentType">
+                <option value="" disabled selected>Select type...</option>
+                <option>Feature Film</option>
+                <option>TV Series / Episodic</option>
+                <option>Documentary</option>
+                <option>Short Film</option>
+                <option>Commercial / Ad</option>
+                <option>Corporate / Brand</option>
+                <option>Music Video</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row full">
+            <div class="field">
+              <label>Project Description</label>
+              <textarea id="projectDesc" placeholder="Briefly describe your project, its scope, number of episodes/minutes, any specific requirements..."></textarea>
+            </div>
+          </div>
+
+          <div class="upload-zone" id="uploadZone">
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+            <div class="uz-title">Attach reference files</div>
+            <div class="uz-sub">Drag &amp; drop or <span>browse</span> — scripts, specs, briefs (max 25 MB)</div>
+          </div>
+
+          <div class="section-label">Timeline &amp; Budget</div>
+
+          <div style="margin-bottom: 16px;">
+            <label style="font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 600; color: var(--muted); display: block; margin-bottom: 10px;">Expected Timeline</label>
+            <div class="timeline-options" id="timelineOptions">
+              <div class="timeline-pill" data-timeline="urgent">
+                <div class="tl-icon">⚡</div>
+                <div class="tl-text">Rush</div>
+                <div class="tl-sub">Under 2 weeks</div>
+              </div>
+              <div class="timeline-pill" data-timeline="standard">
+                <div class="tl-icon">📅</div>
+                <div class="tl-text">Standard</div>
+                <div class="tl-sub">2–6 weeks</div>
+              </div>
+              <div class="timeline-pill" data-timeline="flexible">
+                <div class="tl-icon">🌊</div>
+                <div class="tl-text">Flexible</div>
+                <div class="tl-sub">No hard deadline</div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <label style="font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 600; color: var(--muted); display: block; margin-bottom: 10px;">Budget Range</label>
+            <div class="budget-options" id="budgetOptions">
+              <div class="budget-pill" data-budget="< €5k">
+                <div class="amount">&lt; €5k</div>
+                <div class="budget-label">Starter</div>
+              </div>
+              <div class="budget-pill" data-budget="€5k – €20k">
+                <div class="amount">€5k – €20k</div>
+                <div class="budget-label">Standard</div>
+              </div>
+              <div class="budget-pill" data-budget="€20k – €50k">
+                <div class="amount">€20k – €50k</div>
+                <div class="budget-label">Premium</div>
+              </div>
+              <div class="budget-pill" data-budget="€50k+">
+                <div class="amount">€50k+</div>
+                <div class="budget-label">Enterprise</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="step-nav">
+            <button class="btn btn-secondary" id="backTo1"><svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</button>
+            <button class="btn btn-primary" id="toStep3">Continue <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+          </div>
+        </div>
+
+        <!-- Step 3: Contact Info & Review -->
+        <div class="step-panel" id="step3">
+          <div class="step-title">Your details &amp; review</div>
+          <div class="step-desc">Almost there — let us know how to reach you and review your request.</div>
+
+          <div class="section-label">Contact Information</div>
+
+          <div class="form-row">
+            <div class="field">
+              <label>Full Name <span class="req">*</span></label>
+              <input type="text" id="fullName" placeholder="John Doe" />
+            </div>
+            <div class="field">
+              <label>Company</label>
+              <input type="text" id="company" placeholder="Production Company" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label>Email <span class="req">*</span></label>
+              <input type="email" id="email" placeholder="john@company.com" />
+            </div>
+            <div class="field">
+              <label>Phone</label>
+              <input type="tel" id="phone" placeholder="+32 ..." />
+            </div>
+          </div>
+
+          <div class="form-row full">
+            <div class="field">
+              <label>Additional Notes</label>
+              <textarea id="notes" placeholder="Anything else we should know? Preferred platforms, NDAs, deadlines..." style="min-height: 100px;"></textarea>
+            </div>
+          </div>
+
+          <div class="section-label" style="margin-top: 40px;">Request Summary</div>
+
+          <div class="review-panel" id="reviewPanel">
+            <h3>
+              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+              Your Quote Request
+            </h3>
+            <div class="review-grid" id="reviewGrid">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+
+          <div class="step-nav">
+            <button class="btn btn-secondary" id="backTo2"><svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> Back</button>
+            <button class="btn btn-submit" id="submitBtn">
+              <svg viewBox="0 0 24 24" style="width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              Submit Request
+            </button>
+          </div>
+        </div>
+
+        <!-- Success -->
+        <div class="success-panel" id="successPanel">
+          <div class="success-icon">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <h2>Request Sent!</h2>
+          <p>Thank you for your interest in Option Media. Our team will review your request and get back to you within 24 hours with a tailored proposal.</p>
+          <a class="btn btn-primary" href="/optionmedia/">Back to Homepage</a>
+        </div>
+
+      </div>
+
+    </div>
+
+  <script slot="scripts" is:inline>
+  (function () {
+    /* ── Mobile Menu ── */
+    var hamburgerBtn = document.getElementById('hamburgerBtn');
+    var mobileMenu   = document.getElementById('mobileMenu');
+    var menuOverlay  = document.getElementById('menuOverlay');
+    var closeMenuBtn = document.getElementById('closeMenu');
+    var menuLinks    = document.querySelectorAll('.mobile-menu a, .mobile-menu button:not(#closeMenu)');
+
+    function openMenu() {
+      mobileMenu.classList.add('active');
+      menuOverlay.classList.add('active');
+      hamburgerBtn.classList.add('active');
+      document.body.classList.add('menu-open');
+    }
+
+    function closeMenus() {
+      mobileMenu.classList.remove('active');
+      menuOverlay.classList.remove('active');
+      hamburgerBtn.classList.remove('active');
+      document.body.classList.remove('menu-open');
+    }
+
+    hamburgerBtn.addEventListener('click', function () {
+      if (mobileMenu.classList.contains('active')) { closeMenus(); } else { openMenu(); }
+    });
+    closeMenuBtn.addEventListener('click', closeMenus);
+    menuOverlay.addEventListener('click', closeMenus);
+    menuLinks.forEach(function (link) { link.addEventListener('click', closeMenus); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('active')) { closeMenus(); }
+    });
+
+    /* ── Multi-Step Form Logic ── */
+    var currentStep = 1;
+    var formData = {
+      services: [],
+      timeline: '',
+      budget: '',
+      projectTitle: '',
+      contentType: '',
+      projectDesc: '',
+      fullName: '',
+      company: '',
+      email: '',
+      phone: '',
+      notes: ''
+    };
+
+    var steps = [
+      document.getElementById('step1'),
+      document.getElementById('step2'),
+      document.getElementById('step3')
+    ];
+    var progressSteps = document.querySelectorAll('.progress-step');
+    var progressLines = [document.getElementById('line1'), document.getElementById('line2')];
+    var successPanel = document.getElementById('successPanel');
+
+    function goToStep(n) {
+      // Hide current
+      steps.forEach(function (s) {
+        s.classList.remove('active');
+        s.style.display = 'none';
+      });
+
+      // Update progress
+      progressSteps.forEach(function (ps, i) {
+        var stepNum = i + 1;
+        ps.classList.remove('active', 'completed');
+        if (stepNum < n) ps.classList.add('completed');
+        else if (stepNum === n) ps.classList.add('active');
+      });
+
+      progressLines.forEach(function (line, i) {
+        if (i < n - 1) line.classList.add('filled');
+        else line.classList.remove('filled');
+      });
+
+      // Show target
+      currentStep = n;
+      steps[n - 1].style.display = 'block';
+      steps[n - 1].classList.add('active');
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Service card selection
+    document.querySelectorAll('.service-card').forEach(function (card) {
+      card.addEventListener('click', function () {
+        card.classList.toggle('selected');
+      });
+    });
+
+    // Timeline selection (single)
+    document.querySelectorAll('.timeline-pill').forEach(function (pill) {
+      pill.addEventListener('click', function () {
+        document.querySelectorAll('.timeline-pill').forEach(function (p) { p.classList.remove('selected'); });
+        pill.classList.add('selected');
+      });
+    });
+
+    // Budget selection (single)
+    document.querySelectorAll('.budget-pill').forEach(function (pill) {
+      pill.addEventListener('click', function () {
+        document.querySelectorAll('.budget-pill').forEach(function (p) { p.classList.remove('selected'); });
+        pill.classList.add('selected');
+      });
+    });
+
+    // Progress step clicks
+    progressSteps.forEach(function (ps) {
+      ps.addEventListener('click', function () {
+        var target = parseInt(ps.getAttribute('data-step'));
+        if (target <= currentStep || ps.classList.contains('completed')) {
+          goToStep(target);
+        }
+      });
+    });
+
+    // Navigation buttons
+    document.getElementById('toStep2').addEventListener('click', function () {
+      var selected = document.querySelectorAll('.service-card.selected');
+      if (selected.length === 0) {
+        // Gentle shake animation
+        document.getElementById('serviceGrid').style.animation = 'none';
+        setTimeout(function () {
+          document.getElementById('serviceGrid').style.animation = 'shake 0.4s ease';
+        }, 10);
+        return;
+      }
+      goToStep(2);
+    });
+
+    document.getElementById('backTo1').addEventListener('click', function () { goToStep(1); });
+    document.getElementById('toStep3').addEventListener('click', function () {
+      buildReview();
+      goToStep(3);
+    });
+    document.getElementById('backTo2').addEventListener('click', function () { goToStep(2); });
+
+    // Build review panel
+    function buildReview() {
+      var grid = document.getElementById('reviewGrid');
+      grid.innerHTML = '';
+
+      // Services
+      var services = [];
+      document.querySelectorAll('.service-card.selected').forEach(function (c) {
+        services.push(c.querySelector('h3').textContent);
+      });
+
+      addReviewItem(grid, 'Services', services.map(function (s) { return '<span class="tag">' + s + '</span>'; }).join(' ') || '<span style="color:var(--muted)">None selected</span>');
+
+      // Content Type
+      var ct = document.getElementById('contentType');
+      addReviewItem(grid, 'Content Type', ct.value || '<span style="color:var(--muted)">Not specified</span>');
+
+      // Project Title
+      var pt = document.getElementById('projectTitle').value;
+      addReviewItem(grid, 'Project', pt || '<span style="color:var(--muted)">Not specified</span>');
+
+      // Timeline
+      var tl = document.querySelector('.timeline-pill.selected');
+      addReviewItem(grid, 'Timeline', tl ? tl.querySelector('.tl-text').textContent + ' — ' + tl.querySelector('.tl-sub').textContent : '<span style="color:var(--muted)">Not specified</span>');
+
+      // Budget
+      var bg = document.querySelector('.budget-pill.selected');
+      addReviewItem(grid, 'Budget', bg ? bg.getAttribute('data-budget') : '<span style="color:var(--muted)">Not specified</span>');
+
+      // Description
+      var desc = document.getElementById('projectDesc').value;
+      if (desc) {
+        addReviewItem(grid, 'Description', desc.length > 120 ? desc.substring(0, 120) + '…' : desc);
+      }
+    }
+
+    function addReviewItem(parent, label, value) {
+      var item = document.createElement('div');
+      item.className = 'review-item';
+      item.innerHTML = '<div class="ri-label">' + label + '</div><div class="ri-value">' + value + '</div>';
+      parent.appendChild(item);
+    }
+
+    // Submit
+    document.getElementById('submitBtn').addEventListener('click', function () {
+      var name = document.getElementById('fullName').value.trim();
+      var email = document.getElementById('email').value.trim();
+
+      if (!name || !email) {
+        var fields = document.querySelectorAll('#step3 .field input[required], #step3 .field input');
+        fields.forEach(function (f) {
+          if (!f.value.trim() && (f.id === 'fullName' || f.id === 'email')) {
+            f.style.borderColor = 'var(--orange)';
+            f.style.boxShadow = '0 0 0 3px rgba(223,254,1,0.12)';
+            setTimeout(function () {
+              f.style.borderColor = '';
+              f.style.boxShadow = '';
+            }, 2000);
+          }
+        });
+        return;
+      }
+
+      // Hide form, show success
+      steps.forEach(function (s) { s.classList.remove('active'); s.style.display = 'none'; });
+      document.getElementById('progressRail').style.display = 'none';
+      successPanel.classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Shake keyframe injection
+    var style = document.createElement('style');
+    style.textContent = '@keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-8px)} 50%{transform:translateX(8px)} 75%{transform:translateX(-4px)} }';
+    document.head.appendChild(style);
+
+  }());
+  </script>
+</Layout>
